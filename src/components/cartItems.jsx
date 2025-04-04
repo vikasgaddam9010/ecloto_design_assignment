@@ -2,7 +2,7 @@ const CartItems = ({cartItems, increamentCart, decreamentCart, deleteItemfromCar
     return (
         <ul>
             {
-                cartItems.map(each => (
+                cartItems.length !== 0 ? cartItems.map(each => (
                     <li className="bg-white p-3 mt-3 rounded-xl flex items-center justify-between" key={each.id}>
                         <div>
                             <p className="font-bold">{each.name}</p>
@@ -18,7 +18,10 @@ const CartItems = ({cartItems, increamentCart, decreamentCart, deleteItemfromCar
                             </div>
                         </div>}
                     </li>
-                ))
+                )) : <div className="bg-white text-center py-5">
+                    <h2>Your Cart is Empty</h2>
+                    <p>Add Some products To See them Here.</p>
+                </div>
             }
         </ul>
     )
